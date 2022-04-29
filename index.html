@@ -36,7 +36,7 @@
 								<li><a href="#highlight" class="fa" >Highlighted Project</a></li>
 								<li><a href="#work" class="fa" >Other Projects</a></li>
 								<li><a href="#about" class="fa" >About</a></li>
-								<li><a href="https://drive.google.com/uc?export=download&id=1c-kGaL9vgC8DwI8RTMjeRsDIWaUdifxo" class="fa fa-download"> Resume</a></li>
+								<li><a href="https://drive.google.com/uc?export=download&id=1GujZIThajamWum9q3YIGlHeT6Q5QTVWj" class="fa fa-download"> Resume</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -48,9 +48,9 @@
 						<!-- highlight -->
 							<article id="highlight">
 								<h2 class="major">Marketing Numbers</h2>
-								<h3>a New Source of Revenue and Value</h3>
+								<h3>a New Source of Revenue</h3>
 								<span class="image main"><img src="images/simplifiedpricing.png" alt="" /></span>
-								<i><p>After implimenting Marketing Numbers, only clients that signed up for the premium plans could have access to the Marketing Numbers feature.</p></i>
+								<i><p>Only clients that signed up for the premium plans could have access to the Marketing Numbers feature.</p></i>
 								<strong>Problem:</strong><br />
 								<p>
 									Previous system could only track lead sources from a general marketing campaign not from marketing campaigns that have specific criteria.<br>
@@ -80,17 +80,37 @@
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Other Projects</h2>
-								<h3>1. Managed Browsers through Google Workspace</h3>
+								<h3>Managed Browsers through Google Workspace</h3>
 								<span class="image main"><img src="images/googleworkspace.jpg" alt="" /></span>
-								<p>Managed chrome browsers across multiple departments.</p>
-								<p>Enforced user-level policies on the browser that doesn't require the user to be logged into google chrome.</p>
+								<p>No AD? No MDM? No Group Policy? No Problem! </p>
+								<p>Enforced policies on the browser that doesn't require users to be logged into chrome.</p>
+								<strong>Problem:</strong>
+								<p>
+									Previous system was a shared google account that was in it's own OU in Google Workspace. We could set security policies for the shared account.<br>
+									<ul>
+										<li>Chrome would have consistent issues with syncing. Problem occurs when 200+ employees on the shared account are logging in and out simultaneously.</li>
+										<li>Security was a high risk since multiple employees shared the account.</li>
+									</ul>
+								</p>
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/VfwyrVIFVeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<strong>Solution:</strong>
+								<p>
+									Principle architect for structured OUs in Google Workspace. Utilized google's Managed Browser feature to eliminate the need for end users to log into a shared account to receive security policies. <br />
+									
+									<ul>
+										<li>Set security polices in the OU instead of the shared account.</li>
+										<li>Created an enrolment token which was placed in our cloning software's golden image. 
+										<li>Our cloning software, Clonezilla, would automatically enroll the device in the Managed Browser since the enrollment token was applied in the Golden Image.</li>
+									</ul>
+								</p>
+								<p>Users could sync chrome with their own personal google accounts, but our security policies would apply regardless. It's much like having our own company web browser that's chrome based. Except we decide what the browser can and can't do.</p>
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<p>IT isn't my hobby, it's my life!</p>
 							</article>
 
 						<!-- Contact -->
