@@ -87,30 +87,31 @@
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Other Projects</h2>
-								<h3>Managed Browsers through Google Workspace</h3>
+								<h3>Chrome Browser Cloud Management</h3>
 								<span class="image main"><img src="images/googleworkspace.jpg" alt="" /></span>
 								<p>No AD? No MDM? No Group Policy? No Problem! </p>
 								<p>Enforced policies on the browser that doesn't require users to be logged into chrome.</p>
 								<strong>Problem:</strong>
 								<p>
-									Previous system was a shared google account that was in it's own OU in Google Workspace. We could set security policies for the shared account.<br>
+									Previous system was a shared google account that wasn't in it's own OU in Google Workspace. We could set security policies for the shared account which would apply to 700+ employees sharing the account.<br>
 									<ul>
 										<li>Chrome would have consistent issues with syncing. Problem occurs when 200+ employees on the shared account are logging in and out simultaneously.</li>
-										<li>Security was a high risk since multiple employees shared the account.</li>
+										<li>Security was a critical risk factor since a massive amount of employees shared one google account.</li>
+										<li>Logistical and budget limitations prevented non-support staff from obtaining their own work email through google workspace hence the singe shared account.</li>
 									</ul>
 								</p>
 								<iframe width="560" height="315" src="https://www.youtube.com/embed/VfwyrVIFVeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								<strong>Solution:</strong>
 								<p>
-									Principle architect for structured OUs in Google Workspace. Utilized google's Managed Browser feature to eliminate the need for end users to log into a shared account to receive security policies. <br />
+									I was the principle architect for structured OUs in Google Workspace. Utilized google's Managed Browser feature to eliminate the need for end users to log into a shared account to receive security policies. This implimentation also allowed us to stay within the logistical and budget limitations imposed on this particular problem.<br />
 									
 									<ul>
 										<li>Set security polices in the OU instead of the shared account.</li>
 										<li>Created an enrolment token which was placed in our cloning software's golden image. </li>
-										<li>Our cloning software, Clonezilla, would automatically enroll the device in the Managed Browser since the enrollment token was applied in the Golden Image.</li>
+										<li>Our cloning software, Clonezilla, would automatically enroll the device in the Managed Browser since the enrollment token was applied in the golden image.</li>
 									</ul>
 								</p>
-								<p>Users could sync chrome with their own personal google accounts, but our security policies would apply regardless. It's much like having our own company web browser that's chrome based. Except we decide what the browser can and can't do. </p>
+								<p>Users could sync chrome with their own personal google accounts, but our security policies would apply regardless. It's much like having our own company web browser that's chrome based. Except we decide what the browser can and can't do. For companies with a BYOD environment and all web-based applications, this solution is a perfect fit!</p>
 							</article>
 
 						<!-- About -->
