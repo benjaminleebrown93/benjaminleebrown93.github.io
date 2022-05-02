@@ -108,6 +108,9 @@ input, select, textarea {
 			-ms-transition: none !important;
 			transition: none !important;
 		}
+	video {
+		width: 100%
+	}
 
 /* Type */
 
