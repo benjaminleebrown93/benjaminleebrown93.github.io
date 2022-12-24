@@ -87,29 +87,29 @@
 								<h2 class="major">Other Projects</h2>
 								<h3>Chrome Browser Cloud Management</h3>
 								<span class="image main"><img src="images/googleworkspace.jpg" alt="" /></span>
-								<p>No AD? No MDM? No Group Policy? No Problem! </p>
-								<p>Enforced policies on the browser that doesn't require users to be logged into chrome.</p>
+								<p>Seamless Cloud Management without AD, MDM, or Group Policy</p>
+								<p>Implemented policies on the browser that do not necessitate user login to Chrome profile.</p>
 								<strong>Problem:</strong>
 								<p>
-									Previous system was a shared google account that wasn't in it's own OU in Google Workspace. We could set security policies for the shared account which would apply to 700+ employees sharing the account.<br>
+									The previous system utilized a shared Google account that was not located in its own organizational unit within Google Workspace.<br>
 									<ul>
-										<li>Chrome would have consistent issues with syncing. Problem occurs when 700+ employees on the shared account are logging in and out simultaneously.</li>
-										<li>Security was a critical risk factor since a massive amount of employees shared one google account.</li>
-										<li>Logistical and budget limitations prevented non-support staff from obtaining their own work email through google workspace hence the singe shared account.</li>
+										<li>The synchronization of Chrome was prone to consistent issues, particularly when a large number of employees (over 700) utilizing the shared account logged in and out simultaneously.</li>
+										<li>Security posed a significant risk due to the high number of employees utilizing a shared Google account.</li>
+										<li>Logistical and budget constraints hindered non-support staff from obtaining individual work email accounts through Google Workspace, leading to the use of a shared account.</li>
 									</ul>
 								</p>
 								<iframe width=100% height="315" src="https://www.youtube.com/embed/VfwyrVIFVeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 								<strong>Solution:</strong>
 								<p>
-									I was the principle architect for structured OUs in Google Workspace. Utilized google's Managed Browser feature to eliminate the need for end users to log into a shared account to receive security policies. This implimentation also allowed us to stay within the logistical and budget limitations imposed on this particular problem.<br />
+									As the principal architect for structured OUs in Google Workspace, I leveraged Google's Managed Browser feature to eliminate the requirement for end users to log into a shared account in order to receive security policies. This implementation also allowed us to conform to the logistical and budget constraints of the situation.<br />
 									
 									<ul>
-										<li>Set security polices in the OU instead of the shared account.</li>
-										<li>Created an enrolment token which was placed in our cloning software's golden image. </li>
-										<li>Our cloning software, Clonezilla, would automatically enroll the device in the Managed Browser since the enrollment token was applied in the golden image.</li>
+										<li>Established security policies within the organizational unit rather than the shared account.</li>
+										<li>Generated an enrolment token which was included in our cloning software's golden image. </li>
+										<li>The enrolment token applied in the golden image enabled automatic enrollment of the device in the Managed Browser through Clonezilla.</li>
 									</ul>
 								</p>
-								<p>Users could sync chrome with their own personal google accounts, but our security policies would apply regardless. It's much like having our own company web browser that's chrome based. Except we decide what the browser can and can't do. For companies with a BYOD environment and all web-based applications, this solution is a perfect fit!</p>
+								<p>Users were able to synchronize Chrome with their personal Google accounts while still being subject to our security policies, effectively creating a company-specific Chrome-based web browser with customized functionalities. This solution is especially well-suited for companies with a bring-your-own-device policy and a reliance on web-based applications.</p>
 							</article>
 
 						<!-- About -->
