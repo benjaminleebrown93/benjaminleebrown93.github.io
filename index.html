@@ -1,22 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<title>Ben Brown</title>
-	<link rel="icon" href="images/favicon.ico">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="description" content="Ben Brown | Portfolio showcasing technical solutions, AV projects, and career achievements.">
-	<meta name="keywords" content="five9, okta, technical professional, live video, automation, call routing">
-	<meta name="author" content="Ben Brown">
-	
-	<!-- Preload essential assets -->
-	<link rel="preload" href="assets/fonts/custom-font.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-	<link rel="preload" href="images/simplifiedpricing.webp" as="image" type="image/webp">
-	
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
-</head>
+		<title>Ben Brown | IT Operations &amp; Infrastructure</title>
+		<link rel="icon" href="images/favicon.ico">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="Ben Brown is an IT Operations and Infrastructure professional delivering secure, scalable networks, identity workflows, and enablement content for distributed teams.">
+		<meta name="keywords" content="IT operations, infrastructure, Okta, five9, UniFi, VMware, Cloudflare, Google Workspace, AV production">
+		<meta name="author" content="Ben Brown">
+
+		<link rel="stylesheet" href="assets/css/main.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -30,19 +25,24 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Ben Brown</h1>
-									<p>
-										Certified Okta Professional<br />
-										Certified five9 Administrator<br />
-										5+ years experience in I.T. Operations
-									</p>
+								<p class="tagline">
+									IT Operations &amp; Infrastructure<br />
+									Okta Certified Professional | five9 Certified Administrator<br />
+									Scaling secure connectivity, identity, and enablement for distributed teams
+								</p>
+								<ul class="actions">
+									<li><a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" class="button primary icon solid fa-download" download>Download Resume</a></li>
+									<li><a href="#contact" class="button">Contact</a></li>
+								</ul>
 							</div>
 						</div>
 						<nav role="navigation" aria-label="Main Navigation">
 							<ul>
-								<li><a href="#highlight" class="fa">Highlighted Project</a></li>
-								<li><a href="#work" class="fa">Other Projects</a></li>
-								<li><a href="#about" class="fa">A/V Showcase</a></li>
+								<li><a href="#impact" class="fa">Impact</a></li>
+								<li><a href="#work" class="fa">Projects</a></li>
+								<li><a href="#about" class="fa">Media</a></li>
 								<li><a href="#resume" class="fa fa-download">Resume</a></li>
+								<li><a href="#contact" class="fa">Contact</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -50,396 +50,226 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- highlight -->
-							<article id="highlight">
-								<h2 class="major">Highlighted Project</h2>
+						<!-- Impact -->
+							<article id="impact">
+								<h2 class="major">Flagship Impact</h2>
 								<h3>Ubiquiti UniFi Network Rollout</h3>
 								<span class="image main">
 									<img src="images/unifi.png" alt="Ubiquiti UniFi access point hardware" loading="lazy">
 								</span>
+								<div class="stat-grid">
+									<div class="stat">
+										<h3>74+</h3>
+										<p>field offices standardized</p>
+									</div>
+									<div class="stat">
+										<h3>1,200+</h3>
+										<p>end users stabilized</p>
+									</div>
+									<div class="stat">
+										<h3>99.9%</h3>
+										<p>uptime maintained</p>
+									</div>
+								</div>
 								<p>
-									Led the design, deployment, and lifecycle management of standardized UniFi network stacks across 74+ geographically dispersed field offices to replace legacy gear and stabilize connectivity for over 1,200 end users.
-								</p>
-								<p>
-									By centralizing topology, firmware, and alerting through UniFi Network Controller, I delivered predictable onboarding, faster incident response, and clear visibility into site health without expanding headcount.
+									Led the design, deployment, and lifecycle management of standardized UniFi network stacks across geographically dispersed field offices to replace legacy gear and stabilize connectivity at scale.
 								</p>
 								<ul class="alt">
-									<li><strong>Zero-touch staging:</strong> templated switch/AP configurations and VPN backhaul for plug-and-play installs.</li>
-									<li><strong>Lifecycle upkeep:</strong> quarterly maintenance windows, coordinated firmware waves, and rollback plans to keep uptime above 99.9%.</li>
+									<li><strong>Zero-touch staging:</strong> templated switch and AP configurations with VPN backhaul for plug-and-play installs.</li>
+									<li><strong>Lifecycle upkeep:</strong> quarterly maintenance windows, staged firmware waves, and rollback plans to protect uptime.</li>
 									<li><strong>Proactive monitoring:</strong> custom alerts on WAN failover, PoE budgets, and rogue AP detection feeding ticket automation.</li>
 								</ul>
+								<p class="result-callout">
+									<strong>Outcome:</strong> predictable onboarding, faster incident response, and clear site health visibility without adding headcount.
+								</p>
 							</article>
 
-							<!-- Work -->
-								<article id="work">
-									<h2 class="major">Other Projects</h2>
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">Projects &amp; Systems</h2>
+
+								<section class="project">
+									<p class="project-meta">Lab Infrastructure</p>
 									<h3>VMware vSphere Homelab</h3>
-									<span class="image main"><img src="images/ESXi VMware Vsphere.png" alt="Dell PowerEdge R630 VMware vSphere homelab rack" /></span>
-									<p>
-										Built and maintain a Dell PowerEdge R630 homelab running VMware vSphere, giving me a self-hosted sandbox to architect production-style services and keep my virtualization chops sharp.
-									</p>
-									<ul class="alt">
-										<li><strong>3CX VoIP:</strong> Operate personal IVR call flows to experiment with SIP trunking, call routing, and failover—scaled down for home use but wired like the real thing.</li>
-										<li><strong>Active Directory:</strong> Provisioned a domain controller and Windows client with roaming profiles to test group policies, login scripts, and user mobility.</li>
-										<li><strong>App stack:</strong> Run a Kemp load balancer, an n8n automation server, and a Minecraft world for friends—all orchestrated on isolated VLANs.</li>
-									</ul>
-									<p>
-										Cloudflare Tunnels expose selected services through a unified dashboard so I can administer VMs from anywhere while enforcing Cloudflare Access policies—Internet reachable, yet locked down to my identity.
-									</p>
-									<span class="image main"><img src="images/dashboard.png" alt="Cloudflare dashboard for remote homelab access" /></span>
+									<div class="project-grid">
+										<div class="project-media">
+											<span class="image main"><img src="images/ESXi VMware Vsphere.png" alt="Dell PowerEdge R630 VMware vSphere homelab" /></span>
+										</div>
+										<div>
+											<p>
+												Build and maintain a Dell PowerEdge R630 homelab running VMware vSphere, giving me a production-style sandbox to prototype services and validate infrastructure changes before rollout.
+											</p>
+											<ul class="alt">
+												<li><strong>3CX VoIP:</strong> experiment with SIP trunking, IVR call flows, and failover scenarios.</li>
+												<li><strong>Active Directory:</strong> validate GPOs, login scripts, and roaming profiles for user mobility.</li>
+												<li><strong>Service stack:</strong> run a Kemp load balancer, n8n automation server, and managed Minecraft world on isolated VLANs.</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+
+								<section class="project">
+									<p class="project-meta">Secure Remote Access</p>
+									<h3>Cloudflare Tunnels &amp; Zero-Trust Controls</h3>
+									<div class="project-grid">
+										<div class="project-media">
+											<span class="image main"><img src="images/dashboard.png" alt="Cloudflare dashboard for remote homelab access" /></span>
+										</div>
+										<div>
+											<p>
+												Cloudflare Tunnels expose selected services through a unified dashboard so I can administer VMs from anywhere while enforcing identity-aware policies.
+											</p>
+											<ul class="alt">
+												<li><strong>Single entry point:</strong> centralized access to lab systems without exposing raw ports.</li>
+												<li><strong>Segmentation:</strong> VLAN isolation and least-privilege rules contain experiments.</li>
+												<li><strong>Always-on access:</strong> manage services securely from any location.</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+
+								<section class="project">
+									<p class="project-meta">Browser Security</p>
 									<h3>Chrome Browser Cloud Management</h3>
-									<span class="image main"><img src="images/googleworkspace.jpg" alt="" /></span>
-								<p>Seamless Cloud Management without AD, MDM, or Group Policy</p>
-								<p>Implemented policies on the browser that do not necessitate user login to Chrome profile.</p>
-								<strong>Problem:</strong>
-								<p>
-									The previous system utilized a shared Google account that was not located in its own organizational unit within Google Workspace.<br>
-									<ul>
-										<li>The synchronization of Chrome was prone to consistent issues, particularly when a large number of employees (over 700) utilizing the shared account logged in and out simultaneously.</li>
-										<li>Security posed a significant risk due to the high number of employees utilizing a shared Google account.</li>
-										<li>Logistical and budget constraints hindered non-support staff from obtaining individual work email accounts through Google Workspace, leading to the use of a shared account.</li>
+									<div class="project-grid">
+										<div class="project-media">
+											<span class="image main"><img src="images/googleworkspace.jpg" alt="Google Workspace managed browser policies" /></span>
+										</div>
+										<div>
+											<p>Implemented managed Chrome policies without requiring profile login, preserving security posture while respecting licensing constraints.</p>
+											<div class="problem-solution">
+												<div class="card">
+													<h4>Challenge</h4>
+													<ul>
+														<li>Shared accounts created sync instability when 700+ users signed in and out.</li>
+														<li>Security risk increased with widely shared credentials.</li>
+														<li>Budget constraints limited individual Google Workspace accounts.</li>
+													</ul>
+												</div>
+												<div class="card">
+													<h4>Solution</h4>
+													<ul>
+														<li>Structured OUs and security policies tied to devices, not shared accounts.</li>
+														<li>Enrollment token embedded in the golden image for automatic registration.</li>
+														<li>Users sync personal accounts while remaining under corporate controls.</li>
+													</ul>
+												</div>
+											</div>
+											<div class="video-frame">
+												<iframe src="https://www.youtube.com/embed/VfwyrVIFVeI" title="Chrome Browser Cloud Management walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											</div>
+										</div>
+									</div>
+								</section>
+
+								<section class="project">
+									<p class="project-meta">Toolbox</p>
+									<h3>Platforms and tools in rotation</h3>
+									<ul class="alt tool-list">
+										<li><strong>Infrastructure:</strong> UniFi, VMware vSphere, Cloudflare, VLAN segmentation.</li>
+										<li><strong>Identity &amp; access:</strong> Okta, Google Workspace OUs, managed browser policies.</li>
+										<li><strong>Automation &amp; comms:</strong> n8n, 3CX, five9, Clonezilla imaging.</li>
 									</ul>
-								</p>
-								<iframe width=100% height="315" src="https://www.youtube.com/embed/VfwyrVIFVeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-								<strong>Solution:</strong>
-								<p>
-									As the principal architect for structured OUs in Google Workspace, I leveraged Google's Managed Browser feature to eliminate the requirement for end users to log into a shared account in order to receive security policies. This implementation also allowed us to conform to the logistical and budget constraints of the situation.<br />
-									
-									<ul>
-										<li>Established security policies within the organizational unit rather than the shared account.</li>
-										<li>Generated an enrolment token which was included in our cloning software's golden image. </li>
-										<li>The enrolment token applied in the golden image enabled automatic enrollment of the device in the Managed Browser through Clonezilla.</li>
-									</ul>
-								</p>
-								<p>Users were able to synchronize Chrome with their personal Google accounts while still being subject to our security policies, effectively creating a company-specific Chrome-based web browser with customized functionalities. This solution is especially well-suited for companies with a bring-your-own-device policy and a reliance on web-based applications.</p>
+								</section>
 							</article>
 
-							<!-- About -->
-								<article id="about">
-									<h2 class="major">Audio / Video Showcase</h2>
-								<span class="image main"><img src="images/keyboard.jpg" alt="" /></span>
-								<h3>Passkeys Adoption Demo</h3>
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">Audio / Video Showcase</h2>
 								<p>
-									Produced an internal-facing walkthrough highlighting how passwordless passkeys shrink account recovery time and reduce phishing exposure, helping IT evangelize the security shift to stakeholders.
+									I pair technical rigor with production craft, creating enablement content that accelerates adoption, reduces support friction, and keeps teams aligned.
 								</p>
-								<video controls allowfullscreen>
-									<source src="images/Passkeys Demo.mp4" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								<h4>Passkeys Enrollment (iOS)</h4>
-								<p>
-									Delivered the companion walkthrough that guides employees through enrolling in passkeys on managed iOS devices, giving support teams a reusable asset for onboarding pushes.
-								</p>
-								<video controls allowfullscreen>
-									<source src="images/Passkeys Enrollment iOS.mp4" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								<h3>Color Grading Showcase</h3>
-								<strong>Blackmagic RAW</strong>
-								<video controls allowfullscreen>
-									<source src="images/Sales Announcement Color Reveal.webm" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								<video controls allowfullscreen>
-									<source src="images/Masterclass Color Reveal.webm" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								<h3>My transition to professional switchers:</h3>
-								<strong>December 2022 - ATEM vs. OBS</strong>
-								<p>I started out using OBS as my go-to solution for live video production. While OBS is a great free option that allows for a lot of flexibility, I soon realized that there were limitations to what I could achieve. That's when I decided to make the switch to an ATEM professional video switcher. The ATEM switcher offers a more dedicated solution that's designed specifically for live video production. This means that it provides a more stable and reliable performance, with better video quality and more advanced features. While OBS is good, ATEM is better because it provides a more professional solution that is better suited for larger, more complex productions. Overall, switching to an ATEM switcher has allowed me to take my live video production to the next level.</p>
-								<span class="image main"><img src="images/OBS vs ATEM mini.png" alt="" /></span>
-								
-								<h3>OBS</h3>
-								<strong>June 2022 - OBS Stingers:</strong>
-								<p>During my free time, I pursue my personal passion of using DaVinci Resolve to create captivating animations for company logos and on-brand stinger transitions. I then incorporate these designs into company webinars and conferences using OBS to elevate the production value of these events.</p>
-								<span class="image main"><img src="images/Slingshot Logo Animation.gif" alt="" /></span>
-								<span class="image main"><img src="images/No Logo stinger.gif" alt="" /></span>
-								<video controls allowfullscreen>
-									<source src="images/Slingshot Tech Team Logo Animated 2.mp4" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								<video controls allowfullscreen>
-									<source src="images/Aptive Technology Stinger Transition.mp4" type="video/mp4"> Your browser does not support .mp4 videos, change browsers!</video>
-								<video controls allowfullscreen>
-									<source src="images/StreamWipe3.mp4" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								<p><strong>Putting it all together in OBS:</strong></p>
-									<video controls allowfullscreen>
-										<source src="images/Example Transition.mp4" type="video/mp4">Your browser does not support .mp4 videos, change browsers!</video>
-								</article>
+								<div class="media-grid">
+										<div class="media-card">
+											<h3>Passkeys Adoption</h3>
+											<p>Internal-facing walkthroughs that made passwordless enablement approachable for employees and IT stakeholders.</p>
+											<div class="media-stack">
+												<div class="media-tile">
+													<video controls preload="metadata" poster="images/keyboard.jpg">
+														<source src="images/Passkeys Demo.mp4" type="video/mp4">Your browser does not support MP4 video.
+													</video>
+												</div>
+												<div class="media-tile">
+													<video controls preload="metadata">
+														<source src="images/Passkeys Enrollment iOS.mp4" type="video/mp4">Your browser does not support MP4 video.
+													</video>
+												</div>
+											</div>
+										</div>
 
-							<!-- Resume -->
-								<article id="resume">
-									<h2 class="major">Resume Preview</h2>
+										<div class="media-card">
+											<h3>Color Grading Showcase</h3>
+											<p>Blackmagic RAW workflows built for cinematic sales reveals and training productions.</p>
+											<div class="media-stack">
+												<div class="media-tile">
+													<video controls preload="metadata">
+														<source src="images/Sales Announcement Color Reveal.webm" type="video/webm">Your browser does not support WebM video.
+													</video>
+												</div>
+												<div class="media-tile">
+													<video controls preload="metadata">
+														<source src="images/Masterclass Color Reveal.webm" type="video/webm">Your browser does not support WebM video.
+													</video>
+												</div>
+											</div>
+										</div>
+
+									<div class="media-card">
+										<h3>Live Production</h3>
+										<p>Produced live streams for company town halls, quarterly business reviews, and sales or technology all-hands events reaching 50 to 4,000+ employees across in-person and remote audiences.</p>
+										<div class="pdf-grid">
+										<div class="pdf-card">
+											<h4>Live Stream Town Hall - Gym</h4>
+											<object data="images/Live%20Stream%20Town%20Hall%20-%20Gym.pdf" type="application/pdf" class="pdf-frame">
+												<p>
+													Your browser cannot display PDF previews. You can <a href="images/Live%20Stream%20Town%20Hall%20-%20Gym.pdf" target="_blank" rel="noopener">open the plan here</a>.
+												</p>
+											</object>
+										</div>
+										<div class="pdf-card">
+											<h4>Sales TL Event NC</h4>
+											<object data="images/Sales%20TL%20Event%20NC.pdf" type="application/pdf" class="pdf-frame">
+												<p>
+													Your browser cannot display PDF previews. You can <a href="images/Sales%20TL%20Event%20NC.pdf" target="_blank" rel="noopener">open the plan here</a>.
+												</p>
+											</object>
+										</div>
+									</div>
+									</div>
+								</div>
+							</article>
+
+						<!-- Resume -->
+							<article id="resume">
+								<h2 class="major">Resume Preview</h2>
+								<p>Preview my latest resume below or download a copy to share with your team.</p>
+								<ul class="alt resume-highlights">
+									<li><strong>Infrastructure leadership:</strong> multi-site standardization, monitoring, and lifecycle planning.</li>
+									<li><strong>Identity &amp; security:</strong> Okta expertise, policy-driven access, and managed browser controls.</li>
+									<li><strong>Enablement:</strong> training and AV deliverables that accelerate adoption and reduce support load.</li>
+								</ul>
+								<ul class="actions">
+									<li><a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" class="button primary icon solid fa-download" download>Download PDF</a></li>
+									<li><a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" class="button" target="_blank" rel="noopener">Open in New Tab</a></li>
+								</ul>
+								<object data="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" type="application/pdf" width="100%" height="600">
 									<p>
-										Preview my latest resume below or download a copy to share with your team.
+										Your browser cannot display PDF previews. You can <a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" download>download the resume here</a>.
 									</p>
-									<ul class="actions">
-										<li><a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" class="button primary icon solid fa-download" download>Download PDF</a></li>
-										<li><a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" class="button" target="_blank" rel="noopener">Open in New Tab</a></li>
-									</ul>
-									<object data="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" type="application/pdf" width="100%" height="600">
-										<p>
-											Your browser cannot display PDF previews. You can <a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" download>download the resume here</a>.
-										</p>
-									</object>
-								</article>
+								</object>
+							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="button" value="Download" class="button" /></li>
-									</ul>
-								</form>
-								
-							</article>
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
-
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
+								<p>
+									I am open to infrastructure, systems, and IT operations roles where reliability, security, and user experience matter. Reach out if you want a partner who can ship change safely at scale.
+								</p>
+								<ul class="actions contact-actions">
+									<li><a href="mailto:benjaminleebrown93@gmail.com" class="button primary icon solid fa-envelope">Email Me</a></li>
+									<li><a href="https://www.linkedin.com/in/ben-brown-016540195/" class="button" target="_blank" rel="noopener">LinkedIn</a></li>
+									<li><a href="images/Benjamin%20Brown%20IT%20Resume%202026.pdf" class="button" download>Resume PDF</a></li>
+								</ul>
 							</article>
 
 					</div>

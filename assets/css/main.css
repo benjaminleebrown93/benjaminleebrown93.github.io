@@ -1659,3 +1659,210 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+/* Custom enhancements for Ben Brown portfolio */
+
+#header .tagline {
+	font-size: 1rem;
+	letter-spacing: 0.02em;
+	line-height: 1.6;
+}
+
+#header .actions {
+	justify-content: center;
+}
+
+.stat-grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	margin: 1.5rem 0;
+}
+
+.stat {
+	background: rgba(255, 255, 255, 0.06);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	text-align: center;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat h3 {
+	margin: 0 0 0.35rem 0;
+	font-size: 1.5rem;
+	letter-spacing: 0.08em;
+}
+
+.result-callout {
+	border-left: 3px solid #ffffff;
+	padding-left: 1rem;
+	margin-top: 1.5rem;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.project {
+	margin-top: 2.5rem;
+}
+
+.project-meta {
+	font-size: 0.75rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 0.75rem;
+}
+
+.project-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 2rem;
+	align-items: start;
+}
+
+.project-media {
+	display: grid;
+	gap: 1rem;
+}
+
+.project-media .image {
+	margin-bottom: 0;
+}
+
+.problem-solution {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1.5rem;
+	margin: 1.5rem 0;
+}
+
+.card {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.card h4 {
+	margin-top: 0;
+}
+
+.video-frame {
+	position: relative;
+	padding-top: 56.25%;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background: #000;
+}
+
+.video-frame iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.media-grid {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	margin-top: 2rem;
+}
+
+.media-card {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.media-stack {
+	display: grid;
+	gap: 1rem;
+}
+
+.media-tile {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 0.75rem;
+	padding: 0.75rem;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.media-tile img,
+.media-tile video {
+	width: 100%;
+	height: 12rem;
+	object-fit: cover;
+	border-radius: 0.5rem;
+	background: #000;
+}
+
+.media-details {
+	margin-top: 1rem;
+}
+
+.media-details summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.pdf-grid {
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: 1fr;
+	margin-top: 1.5rem;
+}
+
+.pdf-card {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 0.75rem;
+	padding: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pdf-card h4 {
+	margin-top: 0;
+}
+
+.pdf-frame {
+	width: 100%;
+	height: 12rem;
+	border: 0;
+	border-radius: 0.5rem;
+	background: #000;
+}
+
+@media screen and (max-width: 980px) {
+	.pdf-frame {
+		height: 16rem;
+	}
+
+	.media-tile img,
+	.media-tile video {
+		height: 16rem;
+	}
+}
+
+.resume-highlights {
+	margin-top: 1.5rem;
+}
+
+.contact-actions .button {
+	min-width: 180px;
+}
+
+.tool-list li {
+	margin-bottom: 0.75rem;
+}
+
+/* Wider AV showcase while keeping responsiveness */
+#main article#about {
+	width: 70rem;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 980px) {
+	#main article#about {
+		width: 100%;
+	}
+}
