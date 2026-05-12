@@ -1,0 +1,8 @@
+# Claude Code scratch / worktrees — never commit these
+.claude/
+
+# macOS
+.DS_Store
+
+# Windows core dump from Git Bash
+*.stackdump
