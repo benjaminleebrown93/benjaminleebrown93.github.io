@@ -157,9 +157,8 @@ const tickerEl = document.querySelector(".ticker");
 
 document.addEventListener("network:status", (event) => {
   if (!tickerEl) return;
-  const { online, total, resolved } = event.detail;
+  const { online, total } = event.detail;
   tickerEl.querySelectorAll("[data-online]").forEach((el) => (el.textContent = online));
-  tickerEl.querySelectorAll("[data-resolved]").forEach((el) => (el.textContent = resolved));
   const incident = online < total;
   tickerEl.classList.toggle("has-incident", incident);
   tickerEl.querySelectorAll("[data-status-text]").forEach((el) => {
