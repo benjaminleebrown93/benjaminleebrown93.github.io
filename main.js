@@ -167,7 +167,7 @@ document.addEventListener("network:status", (event) => {
 });
 
 // ---------- Network map ----------
-// 74 offices across the US, each uplinked to one of 6 regional switches, which trunk
+// 78 offices across the US, each uplinked to one of 6 regional switches, which trunk
 // to HQ in Provo, UT. Packets ride the links. Hover an office to trace its route;
 // click it to knock it offline and watch a technician ride out from HQ to fix it.
 
