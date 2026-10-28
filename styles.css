@@ -534,8 +534,8 @@ a {
   margin: 24px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .asset-tag {
@@ -784,6 +784,110 @@ a {
   color: var(--burgundy);
 }
 
+/* ---------- Live production: call sheet ---------- */
+
+.production {
+  width: var(--content);
+  margin: 0 auto;
+  padding-top: clamp(140px, 20vh, 220px);
+}
+
+.call-sheet {
+  --r: 0deg;
+  position: relative;
+  display: grid;
+  gap: 22px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 44px) clamp(28px, 4vw, 40px);
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(transparent 0 31px, rgba(128, 0, 32, 0.08) 31px 32px),
+    var(--paper);
+  color: var(--ink);
+  border-radius: 14px;
+  transform: rotate(var(--r));
+  box-shadow: 0 24px 40px var(--shadow);
+}
+
+/* Clapperboard stripe across the top */
+.clapper {
+  height: 34px;
+  margin: 0 calc(-1 * clamp(24px, 4vw, 44px));
+  background: repeating-linear-gradient(-55deg, var(--ink) 0 22px, var(--paper) 22px 44px);
+  border-bottom: 3px solid var(--ink);
+}
+
+.call-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rec {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 10px;
+  border: 1.5px solid var(--wine);
+  border-radius: 999px;
+  color: var(--wine);
+  font-weight: 500;
+}
+
+.rec span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--wine);
+  animation: blink 1.4s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.call-summary {
+  max-width: 56ch;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.15;
+  color: var(--burgundy);
+}
+
+.call-rows {
+  display: grid;
+}
+
+.call-rows div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px dashed rgba(59, 10, 18, 0.25);
+}
+
+.call-rows dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 3px;
+}
+
+.call-rows dd {
+  color: var(--oxblood);
+}
+
 /* ---------- Toolkit: laptop lid ---------- */
 
 .toolkit {
@@ -986,6 +1090,14 @@ a {
   gap: 32px;
 }
 
+.contact-note {
+  margin-top: -16px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--on-dark);
+  text-align: center;
+}
+
 .marker-title {
   font-family: var(--font-marker);
   font-weight: 400;
@@ -1124,6 +1236,10 @@ a {
     scroll-behavior: auto;
   }
 
+  .rec span {
+    animation: none;
+  }
+
   .js .reveal,
   .js .reveal.is-visible {
     opacity: 1;
@@ -1140,14 +1256,32 @@ a {
   }
 }
 
+@media (max-width: 1000px) {
+  .asset-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 860px) {
   :root {
     --content: calc(100% - 28px);
   }
 
   .patch-panel {
-    padding: 8px 34px 10px;
+    gap: 8px;
+    padding: 8px 30px 10px;
     margin-bottom: 40px;
+  }
+
+  .port .tape {
+    font-size: 0.58rem;
+    padding: 1px 5px;
+    letter-spacing: 0.08em;
+  }
+
+  .call-rows div {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   .patch-panel::before {
