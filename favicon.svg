@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#800020"/>
+  <!-- Cream faceplate frame in the RJ45 shape -->
+  <path d="M9 15 H55 V45 H43 V54 H21 V45 H9 Z" fill="#fff5e1"/>
+  <!-- Dark opening -->
+  <path d="M14 20 H50 V41 H38.5 V49 H25.5 V41 H14 Z" fill="#2a0509"/>
+  <!-- Gold contacts -->
+  <path d="M19 20 V27 M23.3 20 V27 M27.6 20 V27 M31.9 20 V27 M36.2 20 V27 M40.5 20 V27 M44.8 20 V27" stroke="#dcc8a3" stroke-width="2"/>
+  <!-- Link light -->
+  <circle cx="53" cy="8.5" r="3.6" fill="#fff5e1"/>
+</svg>
