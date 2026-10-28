@@ -515,11 +515,25 @@ a {
   background: var(--wine);
 }
 
-.incidents {
+/* Instruction stays put; the visitor's own tally appears below it once they play */
+.map-hint {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  text-align: right;
+}
+
+.hint-text {
   font-family: var(--font-marker);
   font-size: 0.85rem;
   letter-spacing: 0;
   color: var(--burgundy);
+}
+
+.incidents {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
 }
 
 /* ---------- Asset tags ---------- */

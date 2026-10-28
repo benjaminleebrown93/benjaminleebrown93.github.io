@@ -243,6 +243,7 @@ async function initNetwork() {
   // "up" | "down" | "repairing"
   const status = OFFICES.map(() => "up");
   let resolved = 0;
+  let broken = 0; // offices this visitor has knocked offline
   let hovered = -1;
 
   const TIP_TEXT = { up: "link up", down: "down", repairing: "tech en route" };
@@ -286,6 +287,7 @@ async function initNetwork() {
     uplinkEls[i].classList.add("is-down");
     const el = svgEl("circle", { r: 6, class: "tech", visibility: "hidden" }, fxLayer);
     techs.push({ office: i, el, wait: REPAIR_DELAY, t: 0 });
+    broken += 1;
     updateTip();
     broadcast();
   }
@@ -296,7 +298,6 @@ async function initNetwork() {
     uplinkEls[i].classList.remove("is-down");
     officeEls[i].setAttribute("r", i === hovered ? OFFICE_R * 1.6 : OFFICE_R);
     resolved += 1;
-    counter.textContent = `incidents resolved: ${resolved}`;
     const [x, y] = OFFICES[i];
     bursts.push({ el: svgEl("circle", { cx: x, cy: y, r: 6, class: "burst" }, fxLayer), age: 0 });
     updateTip();
@@ -305,6 +306,11 @@ async function initNetwork() {
 
   function broadcast() {
     const online = status.filter((s) => s === "up").length;
+    // Visitor's own tally, phrased so it reads as part of the game
+    counter.hidden = false;
+    counter.textContent = `you've broken ${broken} office${broken === 1 ? "" : "s"} · ${
+      online < OFFICES.length ? "tech en route" : "all back online"
+    }`;
     document.dispatchEvent(
       new CustomEvent("network:status", { detail: { online, total: OFFICES.length, resolved } })
     );
