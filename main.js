@@ -37,6 +37,136 @@ ports.forEach((_, id) => {
   if (section) sectionObserver.observe(section);
 });
 
+// ---------- Rotating headline word ----------
+
+const rotator = document.querySelector(".rotator");
+const ROTATOR_WORDS = ["online.", "secure.", "connected.", "on air.", "patched."];
+
+if (rotator && !reduceMotion) {
+  let wordIndex = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    rotator.classList.remove("is-in");
+    rotator.classList.add("is-out");
+    setTimeout(() => {
+      wordIndex = (wordIndex + 1) % ROTATOR_WORDS.length;
+      rotator.textContent = ROTATOR_WORDS[wordIndex];
+      rotator.classList.remove("is-out");
+      void rotator.offsetWidth; // restart the animation
+      rotator.classList.add("is-in");
+    }, 280);
+  }, 2800);
+}
+
+// ---------- Scroll: parallax drift + the work cable drawing itself ----------
+
+const drifters = Array.from(document.querySelectorAll("[data-speed]"));
+const cableRun = document.querySelector(".cable-run");
+
+function onScroll() {
+  const viewH = window.innerHeight;
+
+  if (cableRun) {
+    const rect = cableRun.getBoundingClientRect();
+    const progress = (viewH * 0.75 - rect.top) / rect.height;
+    cableRun.style.setProperty("--draw", Math.min(1, Math.max(0, progress)).toFixed(3));
+  }
+
+  drifters.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    const fromCenter = rect.top + rect.height / 2 - viewH / 2;
+    // Remove the current offset so the drift is measured from the resting position
+    const current = parseFloat(el.dataset.offset || 0);
+    const offset = (fromCenter - current) * -parseFloat(el.dataset.speed);
+    el.dataset.offset = offset;
+    el.style.translate = `0 ${offset.toFixed(1)}px`;
+  });
+}
+
+if (!reduceMotion) {
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", onScroll);
+  onScroll();
+}
+
+// ---------- Badges flip over on click ----------
+
+document.querySelectorAll(".badge-card").forEach((card) => {
+  const toggle = () => {
+    const flipped = card.classList.toggle("is-flipped");
+    card.setAttribute("aria-pressed", String(flipped));
+    card.querySelector(".badge-front").setAttribute("aria-hidden", String(flipped));
+    card.querySelector(".badge-back").setAttribute("aria-hidden", String(!flipped));
+  };
+  card.addEventListener("click", toggle);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggle();
+    }
+  });
+});
+
+// ---------- Ticket: request types build the email subject ----------
+
+const ticket = document.querySelector(".ticket-card");
+
+if (ticket) {
+  const boxes = Array.from(ticket.querySelectorAll(".request-types input"));
+  const subjectLine = ticket.querySelector("#subject-line");
+  const submit = ticket.querySelector("#submit-ticket");
+  const EMAIL = "benjaminleebrown93@gmail.com";
+
+  const updateSubject = () => {
+    const picked = boxes.filter((box) => box.checked).map((box) => box.value);
+    const subject = picked.length ? `Request: ${picked.join(" + ")}` : "New request";
+    subjectLine.textContent = subject;
+    submit.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;
+  };
+
+  boxes.forEach((box) => box.addEventListener("change", updateSubject));
+  updateSubject();
+
+  submit.addEventListener("click", (event) => {
+    if (reduceMotion) return;
+    event.preventDefault();
+    ticket.classList.remove("is-submitted");
+    void ticket.offsetWidth;
+    ticket.classList.add("is-submitted");
+    setTimeout(() => {
+      window.location.href = submit.href;
+    }, 650);
+  });
+}
+
+// ---------- Status ticker mirrors the network map ----------
+
+const tickerEl = document.querySelector(".ticker");
+
+document.addEventListener("network:status", (event) => {
+  if (!tickerEl) return;
+  const { online, total, resolved } = event.detail;
+  tickerEl.querySelectorAll("[data-online]").forEach((el) => (el.textContent = online));
+  tickerEl.querySelectorAll("[data-resolved]").forEach((el) => (el.textContent = resolved));
+  const incident = online < total;
+  tickerEl.classList.toggle("has-incident", incident);
+  tickerEl.querySelectorAll("[data-status-text]").forEach((el) => {
+    el.textContent = incident ? "incident in progress" : "all systems operational";
+  });
+});
+
 // ---------- Network map ----------
 // 74 offices across the US, each uplinked to one of 6 regional switches, which trunk
 // to HQ in Provo, UT. Packets ride the links. Hover an office to trace its route;
@@ -158,6 +288,7 @@ async function initNetwork() {
     const el = svgEl("circle", { r: 6, class: "tech", visibility: "hidden" }, fxLayer);
     techs.push({ office: i, el, wait: REPAIR_DELAY, t: 0 });
     updateTip();
+    broadcast();
   }
 
   function restoreOffice(i) {
@@ -170,6 +301,14 @@ async function initNetwork() {
     const [x, y] = OFFICES[i];
     bursts.push({ el: svgEl("circle", { cx: x, cy: y, r: 6, class: "burst" }, fxLayer), age: 0 });
     updateTip();
+    broadcast();
+  }
+
+  function broadcast() {
+    const online = status.filter((s) => s === "up").length;
+    document.dispatchEvent(
+      new CustomEvent("network:status", { detail: { online, total: OFFICES.length, resolved } })
+    );
   }
 
   function updateIncidents(delta, elapsed) {

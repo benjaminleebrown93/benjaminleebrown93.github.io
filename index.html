@@ -33,22 +33,29 @@
 
     <!-- ---------- Patch panel nav: each link is a labeled port ---------- -->
     <nav class="patch-panel" aria-label="Sections">
-      <a class="port" href="#about"><span class="tape">about</span><span class="jack" aria-hidden="true"></span></a>
-      <a class="port" href="#work"><span class="tape">work</span><span class="jack" aria-hidden="true"></span></a>
-      <a class="port" href="#production"><span class="tape">video</span><span class="jack" aria-hidden="true"></span></a>
-      <a class="port" href="#toolkit"><span class="tape">toolkit</span><span class="jack" aria-hidden="true"></span></a>
-      <a class="port" href="#contact"><span class="tape">contact</span><span class="jack" aria-hidden="true"></span></a>
+      <a class="port" href="#about"><span class="tape">about</span><span class="jack" aria-hidden="true"></span><span class="plug" aria-hidden="true"></span></a>
+      <a class="port" href="#work"><span class="tape">work</span><span class="jack" aria-hidden="true"></span><span class="plug" aria-hidden="true"></span></a>
+      <a class="port" href="#production"><span class="tape">video</span><span class="jack" aria-hidden="true"></span><span class="plug" aria-hidden="true"></span></a>
+      <a class="port" href="#toolkit"><span class="tape">toolkit</span><span class="jack" aria-hidden="true"></span><span class="plug" aria-hidden="true"></span></a>
+      <div class="port-wrap">
+        <a class="port" href="#contact"><span class="tape">contact</span><span class="jack" aria-hidden="true"></span><span class="plug" aria-hidden="true"></span></a>
+        <ul class="port-menu" aria-label="Quick contact">
+          <li style="--i: 0"><a class="tape" href="mailto:benjaminleebrown93@gmail.com">email</a></li>
+          <li style="--i: 1"><a class="tape" href="tel:+18017559804">call</a></li>
+          <li style="--i: 2"><a class="tape" href="https://hirebenbrown.com" rel="noopener">web</a></li>
+        </ul>
+      </div>
     </nav>
 
     <main>
       <!-- ---------- Clipboard hero ---------- -->
       <div class="hero-wrap" id="about">
-        <svg class="doodle d-server" viewBox="0 0 120 120" aria-hidden="true">
+        <svg class="doodle d-server" data-speed="0.12" viewBox="0 0 120 120" aria-hidden="true">
           <rect x="30" y="12" width="60" height="96" rx="7" />
           <path d="M30 36 H90 M30 60 H90 M30 84 H90 M40 24 H62 M40 48 H62 M40 72 H62 M40 96 H62" />
           <circle cx="78" cy="24" r="3" /><circle cx="78" cy="48" r="3" /><circle cx="78" cy="72" r="3" /><circle cx="78" cy="96" r="3" />
         </svg>
-        <svg class="doodle d-router" viewBox="0 0 120 120" aria-hidden="true">
+        <svg class="doodle d-router" data-speed="-0.1" viewBox="0 0 120 120" aria-hidden="true">
           <rect x="14" y="62" width="92" height="30" rx="9" />
           <path d="M34 62 L26 18 M86 62 L94 18 M48 44 Q60 32 72 44 M40 34 Q60 16 80 34" />
           <circle cx="30" cy="77" r="3" /><circle cx="42" cy="77" r="3" /><circle cx="54" cy="77" r="3" />
@@ -66,7 +73,7 @@
             <section class="hero" aria-labelledby="hero-title">
               <div class="hero-copy">
                 <h1 id="hero-title" class="marker-name">Benjamin Lee Brown</h1>
-                <p class="headline">Keeping 74 offices <em class="highlight">online.</em></p>
+                <p class="headline">Keeping 74 offices <em class="highlight rotator">online.</em></p>
                 <p class="lede">
                   Identity, networking, and endpoints — Google Workspace, Okta, Unifi,
                   and the scripts that hold them together. I also brought Aptive's video
@@ -131,7 +138,7 @@
         </header>
 
         <div class="cable-run">
-          <article class="card reveal" style="--r: -1deg">
+          <article class="card reveal" data-speed="0.04" style="--r: -1deg">
             <div class="window-bar"><span></span><span></span><span></span><em>aptive-environmental</em></div>
             <div class="window-body">
               <p class="card-meta">Aptive Environmental · Provo, UT</p>
@@ -145,7 +152,7 @@
             </div>
           </article>
 
-          <article class="card reveal" style="--r: 1deg">
+          <article class="card reveal" data-speed="-0.04" style="--r: 1deg">
             <div class="window-bar"><span></span><span></span><span></span><em>aptive-environmental</em></div>
             <div class="window-body">
               <p class="card-meta">Aptive Environmental · Provo, UT</p>
@@ -158,7 +165,7 @@
             </div>
           </article>
 
-          <article class="card reveal" style="--r: -0.5deg">
+          <article class="card reveal" data-speed="0.03" style="--r: -0.5deg">
             <div class="window-bar"><span></span><span></span><span></span><em>slingshot</em></div>
             <div class="window-body">
               <p class="card-meta">Slingshot · Orem, UT</p>
@@ -275,26 +282,62 @@
 
         <div class="badges">
           <article class="badge reveal" style="--r: -2deg">
-            <span class="badge-slot" aria-hidden="true"></span>
-            <p class="badge-band">Certified</p>
-            <div class="badge-body">
-              <h3>Okta Certified Professional</h3>
-              <p>Identity, single sign-on, and user lifecycle management in Okta.</p>
-              <dl>
-                <div><dt>Earned</dt><dd>Jun 2022</dd></div>
-              </dl>
+            <div class="badge-card" role="button" tabindex="0" aria-pressed="false" aria-label="Okta Certified Professional badge — flip to see the back">
+              <div class="badge-face badge-front">
+                <span class="badge-slot" aria-hidden="true"></span>
+                <p class="badge-band">Certified</p>
+                <div class="badge-body">
+                  <h3>Okta Certified Professional</h3>
+                  <p>Identity, single sign-on, and user lifecycle management in Okta.</p>
+                  <dl>
+                    <div><dt>Earned</dt><dd>Jun 2022</dd></div>
+                  </dl>
+                  <p class="flip-hint">click to flip ↻</p>
+                </div>
+              </div>
+              <div class="badge-face badge-back" aria-hidden="true">
+                <span class="badge-slot"></span>
+                <p class="badge-band">Verified</p>
+                <div class="badge-body">
+                  <p class="back-label">Credential</p>
+                  <p class="back-value">Okta Certified Professional</p>
+                  <p class="back-label">Issued by</p>
+                  <p class="back-value">Okta</p>
+                  <p class="back-label">Earned</p>
+                  <p class="back-value">Jun 2022</p>
+                  <span class="barcode"></span>
+                </div>
+              </div>
             </div>
           </article>
           <article class="badge reveal" style="--r: 2deg">
-            <span class="badge-slot" aria-hidden="true"></span>
-            <p class="badge-band">Certified</p>
-            <div class="badge-body">
-              <h3>Five9 Administrator</h3>
-              <p>Campaign design, IVR routing, and reporting.</p>
-              <dl>
-                <div><dt>Outbound</dt><dd>Jun 2022</dd></div>
-                <div><dt>Inbound</dt><dd>Oct 2020</dd></div>
-              </dl>
+            <div class="badge-card" role="button" tabindex="0" aria-pressed="false" aria-label="Five9 Administrator badge — flip to see the back">
+              <div class="badge-face badge-front">
+                <span class="badge-slot" aria-hidden="true"></span>
+                <p class="badge-band">Certified</p>
+                <div class="badge-body">
+                  <h3>Five9 Administrator</h3>
+                  <p>Campaign design, IVR routing, and reporting.</p>
+                  <dl>
+                    <div><dt>Outbound</dt><dd>Jun 2022</dd></div>
+                    <div><dt>Inbound</dt><dd>Oct 2020</dd></div>
+                  </dl>
+                  <p class="flip-hint">click to flip ↻</p>
+                </div>
+              </div>
+              <div class="badge-face badge-back" aria-hidden="true">
+                <span class="badge-slot"></span>
+                <p class="badge-band">Verified</p>
+                <div class="badge-body">
+                  <p class="back-label">Credential</p>
+                  <p class="back-value">Five9 Administrator</p>
+                  <p class="back-label">Issued by</p>
+                  <p class="back-value">Five9</p>
+                  <p class="back-label">Earned</p>
+                  <p class="back-value">Outbound Jun 2022 · Inbound Oct 2020</p>
+                  <span class="barcode"></span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
@@ -311,10 +354,37 @@
             <div><dt>Phone</dt><dd><a href="tel:+18017559804">801-755-9804</a></dd></div>
             <div><dt>Web</dt><dd><a href="https://hirebenbrown.com" rel="noopener">hirebenbrown.com</a></dd></div>
           </dl>
-          <a class="btn" href="mailto:benjaminleebrown93@gmail.com">Email Benjamin</a>
+          <fieldset class="request-types">
+            <legend>Request type</legend>
+            <label><input type="checkbox" value="IT operations role" /><span class="box" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 11 L8 16 L17 4" /></svg></span><span class="label-text">IT operations role</span></label>
+            <label><input type="checkbox" value="Live event production" /><span class="box" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 11 L8 16 L17 4" /></svg></span><span class="label-text">Live event production</span></label>
+            <label><input type="checkbox" value="Just saying hi" /><span class="box" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 11 L8 16 L17 4" /></svg></span><span class="label-text">Just saying hi</span></label>
+          </fieldset>
+          <p class="subject-preview">Subject: <span id="subject-line">New request</span></p>
+          <a class="btn" id="submit-ticket" href="mailto:benjaminleebrown93@gmail.com?subject=New%20request">Email Benjamin</a>
+          <span class="submitted-stamp" aria-hidden="true">Submitted</span>
         </div>
       </section>
     </main>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-group">
+          <span class="status-dot" data-status-text>all systems operational</span>
+          <span><b data-online>74</b> / 74 offices online</span>
+          <span>incidents resolved this visit: <b data-resolved>0</b></span>
+          <span>live production: town halls · summits · all-hands</span>
+          <span>thanks for stopping by</span>
+        </span>
+        <span class="ticker-group">
+          <span class="status-dot" data-status-text>all systems operational</span>
+          <span><b data-online>74</b> / 74 offices online</span>
+          <span>incidents resolved this visit: <b data-resolved>0</b></span>
+          <span>live production: town halls · summits · all-hands</span>
+          <span>thanks for stopping by</span>
+        </span>
+      </div>
+    </div>
 
     <footer class="footer">
       <span>© 2026 Benjamin Lee Brown</span>

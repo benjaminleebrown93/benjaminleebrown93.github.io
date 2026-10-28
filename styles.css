@@ -129,7 +129,6 @@ a {
   stroke-linejoin: round;
   filter: url(#rough);
   opacity: 0.7;
-  pointer-events: none;
 }
 
 /* ---------- Patch panel nav ---------- */
@@ -996,12 +995,9 @@ a {
   position: relative;
   width: 320px;
   margin-top: 70px;
-  background: var(--paper);
   color: var(--ink);
-  border-radius: 16px;
   transform: rotate(var(--r));
   transform-origin: 50% -70px;
-  box-shadow: 0 24px 40px var(--shadow);
   transition: transform 0.4s ease;
 }
 
@@ -1210,6 +1206,505 @@ a {
   text-decoration: none;
 }
 
+/* ---------- Interactions ---------- */
+
+/* Rotating headline word: highlighter re-swipes each new word */
+.rotator {
+  display: inline-block;
+}
+
+.rotator.is-out {
+  animation: word-out 0.28s ease-in forwards;
+}
+
+.rotator.is-in {
+  animation: word-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes word-out {
+  to {
+    clip-path: inset(0 0 0 100%);
+    background-size: 0% 46%;
+  }
+}
+
+@keyframes word-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    background-size: 0% 46%;
+  }
+  60% {
+    background-size: 0% 46%;
+  }
+  to {
+    clip-path: inset(0 -10% 0 0);
+    background-size: 100% 46%;
+  }
+}
+
+/* Patch panel: hovering a port plugs a cable into it */
+.port {
+  position: relative;
+}
+
+.plug {
+  position: absolute;
+  top: calc(100% - 12px);
+  left: 50%;
+  width: 24px;
+  height: 16px;
+  margin-left: -12px;
+  background: linear-gradient(var(--paper), var(--kraft));
+  border-radius: 2px 2px 4px 4px;
+  box-shadow: 0 2px 4px var(--shadow);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1), opacity 0.15s;
+  pointer-events: none;
+}
+
+/* Cable */
+.plug::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 7px;
+  height: 52px;
+  margin-left: -3.5px;
+  background: var(--wine);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Gold contacts */
+.plug::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #b9a37c 0 2px, transparent 2px 4px);
+}
+
+.port:hover .plug,
+.port:focus-visible .plug {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.port:hover .jack::after,
+.port:focus-visible .jack::after {
+  animation: led-activity 0.5s steps(2, start) infinite;
+}
+
+@keyframes led-activity {
+  to {
+    background: #4a0e18;
+    box-shadow: none;
+  }
+}
+
+/* Contact port drops down quick links */
+.port-wrap {
+  position: relative;
+}
+
+.port-wrap .plug {
+  display: none;
+}
+
+.port-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 0 0;
+  list-style: none;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.port-menu li {
+  opacity: 0;
+  transform: translateY(-10px) rotate(calc((var(--i) - 1) * 4deg));
+  transition:
+    opacity 0.2s calc(var(--i) * 60ms),
+    transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1) calc(var(--i) * 60ms);
+}
+
+.port-menu a {
+  text-decoration: none;
+}
+
+.port-menu a:hover {
+  background: var(--wine);
+  color: var(--paper);
+}
+
+.port-wrap:hover .port-menu,
+.port-wrap:focus-within .port-menu {
+  pointer-events: auto;
+}
+
+.port-wrap:hover .port-menu li,
+.port-wrap:focus-within .port-menu li {
+  opacity: 1;
+  transform: rotate(calc((var(--i) - 1) * 4deg));
+}
+
+@media (hover: none) {
+  .port-menu {
+    display: none;
+  }
+}
+
+/* Doodles wiggle when poked */
+.doodle:hover {
+  animation: wiggle 0.6s ease-in-out;
+}
+
+@keyframes wiggle {
+  25% {
+    rotate: 8deg;
+  }
+  50% {
+    rotate: -6deg;
+  }
+  75% {
+    rotate: 3deg;
+  }
+}
+
+/* Work: the cable draws down the page; cards plug in as they arrive */
+.cable-run::before {
+  transform: scaleY(var(--draw, 1));
+  transform-origin: top;
+}
+
+.js .card::before {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s ease 0.35s;
+}
+
+.js .card:nth-child(even)::before {
+  transform-origin: left;
+}
+
+.js .card::after {
+  transform: scale(0);
+  transition: transform 0.35s cubic-bezier(0.3, 1.8, 0.5, 1) 0.75s;
+}
+
+.js .card.is-visible::before {
+  transform: scaleX(1);
+}
+
+.js .card.is-visible::after {
+  transform: scale(1);
+}
+
+/* Badges: swing on hover, flip on click */
+.badge:hover {
+  animation: swing 1.1s ease-out;
+}
+
+@keyframes swing {
+  20% {
+    rotate: 7deg;
+  }
+  45% {
+    rotate: -5deg;
+  }
+  70% {
+    rotate: 2.5deg;
+  }
+  85% {
+    rotate: -1deg;
+  }
+}
+
+.badge-card {
+  display: grid;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(0);
+  transition: transform 0.7s cubic-bezier(0.3, 1.3, 0.5, 1);
+}
+
+.badge-card.is-flipped {
+  transform: perspective(1000px) rotateY(180deg);
+}
+
+.badge-card:focus-visible {
+  outline: none;
+}
+
+.badge-card:focus-visible .badge-face {
+  outline: 2px dashed var(--on-dark);
+  outline-offset: 6px;
+}
+
+.badge-face {
+  grid-area: 1 / 1;
+  position: relative;
+  background: var(--paper);
+  border-radius: 16px;
+  box-shadow: 0 24px 40px var(--shadow);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.badge-back {
+  transform: rotateY(180deg);
+}
+
+/* Beat the generic .badge p color so the band text shows */
+.badge .badge-band {
+  color: var(--cream);
+}
+
+.badge-back .badge-band {
+  background: var(--oxblood);
+}
+
+.badge-back .badge-body {
+  gap: 2px;
+}
+
+.back-label {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted) !important;
+}
+
+.back-value {
+  font-family: var(--font-serif);
+  font-size: 1.3rem !important;
+  line-height: 1.15;
+  color: var(--burgundy) !important;
+}
+
+.badge-back .barcode {
+  margin: 14px 0 0;
+}
+
+.flip-hint {
+  font-family: var(--font-marker);
+  font-size: 0.85rem !important;
+  color: var(--wine) !important;
+  transform: rotate(-2deg);
+}
+
+/* Ticket: request types, live subject, submit stamp */
+.ticket-card {
+  position: relative;
+}
+
+.request-types {
+  display: grid;
+  gap: 10px;
+  margin: 0 28px;
+  padding: 0;
+  border: 0;
+}
+
+.request-types legend {
+  margin-bottom: 10px;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.request-types label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.request-types input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.request-types .box {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--burgundy);
+  border-radius: 4px;
+  transition: transform 0.2s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+
+.request-types svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--wine);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  transition: stroke-dashoffset 0.35s ease;
+}
+
+.request-types .label-text {
+  padding: 0 0.1em;
+  background: linear-gradient(100deg, transparent 2%, rgba(176, 48, 60, 0.25) 4%, rgba(176, 48, 60, 0.3) 94%, transparent 97%) no-repeat 0 75% / 0% 50%;
+  transition: background-size 0.4s ease;
+}
+
+.request-types input:checked + .box {
+  transform: scale(1.12);
+}
+
+.request-types input:checked + .box svg {
+  stroke-dashoffset: 0;
+}
+
+.request-types input:checked ~ .label-text {
+  background-size: 100% 50%;
+}
+
+.request-types input:focus-visible + .box {
+  outline: 2px dashed var(--burgundy);
+  outline-offset: 3px;
+}
+
+.subject-preview {
+  margin: 0 28px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.subject-preview span {
+  color: var(--ink);
+}
+
+.submitted-stamp {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+  padding: 4px 14px;
+  border: 3px solid var(--wine);
+  border-radius: 8px;
+  font-family: var(--font-marker);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--wine);
+  opacity: 0;
+  transform: rotate(-12deg) scale(2.4);
+  pointer-events: none;
+}
+
+.ticket-card.is-submitted .submitted-stamp {
+  animation: stamp 0.4s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+.ticket-card.is-submitted {
+  animation: thump 0.25s ease-out 0.38s;
+}
+
+@keyframes stamp {
+  to {
+    opacity: 0.85;
+    transform: rotate(-12deg) scale(1);
+  }
+}
+
+@keyframes thump {
+  40% {
+    translate: 0 3px;
+  }
+}
+
+/* Status ticker */
+.ticker {
+  margin-top: clamp(100px, 16vh, 180px);
+  overflow: hidden;
+  border-block: 1px dashed rgba(247, 236, 212, 0.22);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--on-dark);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 45s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-group {
+  display: flex;
+  gap: 56px;
+  padding: 14px 56px 14px 0;
+  white-space: nowrap;
+}
+
+.ticker b {
+  color: var(--paper);
+  font-weight: 500;
+}
+
+.status-dot::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 6px var(--paper);
+}
+
+.ticker.has-incident .status-dot {
+  color: var(--paper);
+}
+
+.ticker.has-incident .status-dot::before {
+  background: var(--wine);
+  box-shadow: 0 0 8px var(--wine);
+  animation: led-activity 0.6s steps(2, start) infinite;
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker + .footer {
+  margin-top: 0;
+  border-top: 0;
+}
+
 /* ---------- Motion ---------- */
 
 .js .reveal {
@@ -1234,6 +1729,19 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .ticker-track,
+  .badge:hover,
+  .doodle:hover,
+  .rotator {
+    animation: none !important;
+  }
+
+  .badge-card,
+  .plug,
+  .port-menu li {
+    transition: none;
   }
 
   .rec span {
@@ -1348,6 +1856,11 @@ a {
   .card::after,
   .card:nth-child(even)::after {
     display: none;
+  }
+
+  .js .card::before,
+  .js .card:nth-child(even)::before {
+    transform-origin: left;
   }
 
   .badge {
