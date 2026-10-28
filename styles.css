@@ -901,6 +901,43 @@ a {
   color: var(--oxblood);
 }
 
+/* Link out to the video portfolio */
+.reel-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding: 16px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.reel-link:hover {
+  background: var(--burgundy);
+  transform: translateY(-2px);
+}
+
+.reel-link:focus-visible {
+  outline-color: var(--burgundy);
+}
+
+.reel-label {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.reel-handle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--kraft);
+}
+
 /* ---------- Toolkit: laptop lid ---------- */
 
 .toolkit {
@@ -1344,7 +1381,7 @@ a {
 
 .port-menu li {
   opacity: 0;
-  transform: translateY(-10px) rotate(calc((var(--i) - 1) * 4deg));
+  transform: translateY(-10px) rotate(calc((var(--i) - 1.5) * 4deg));
   transition:
     opacity 0.2s calc(var(--i) * 60ms),
     transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1) calc(var(--i) * 60ms);
@@ -1367,7 +1404,7 @@ a {
 .port-wrap:hover .port-menu li,
 .port-wrap:focus-within .port-menu li {
   opacity: 1;
-  transform: rotate(calc((var(--i) - 1) * 4deg));
+  transform: rotate(calc((var(--i) - 1.5) * 4deg));
 }
 
 @media (hover: none) {
